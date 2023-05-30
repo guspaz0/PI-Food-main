@@ -342,7 +342,7 @@ function handleSubmit(e) {
 
         <label>Tipo de dieta:</label>
             <span className='dietlist'>
-                <select name='diets' style={{height: '150px'}}multiple onChange={handleInputSteps}>
+                <select name='diets' style={{height: '150px'}} multiple onChange={handleInputSteps}>
                     <option value='vegan'>vegan</option>
                     <option value='gluten free'>gluten free</option>
                     <option value='dairy free'>dairy free</option>

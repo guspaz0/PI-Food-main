@@ -4,15 +4,16 @@ const { API_KEY } = process.env;
 const {Recipe} = require('.././db');
 const {getAllRecipes} = require('./getAllRecipes')
 
-
-
 const findRecipeByName = async (name) => {
     //var allRecipes= []
     //const allApiRecipes = await prueba();
     // const allApiRecipes = await getAllRecipes();
     // const allDbRecipes = await Recipe.findAll();
     // const allRecipes = [...allApiRecipes, ...allDbRecipes]
-    const Allrecipes = await getAllRecipes();
+    const recipedb = await Recipe.findAll();
+    const recipesApi = await getAllRecipes();
+    const Allrecipes = [...recipedb, ...recipesApi]
+
     var keys = name.toLowerCase().split(' ')
     var matches = [];
     keys.map((x) => {
