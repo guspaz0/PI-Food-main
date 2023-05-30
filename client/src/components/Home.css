@@ -1,0 +1,106 @@
+button {
+    margin: 5px;
+    size: 10px;
+    font-size: 20px;
+    color: black;
+    background-color: yellow;
+    box-shadow: 2px 2px 5px yellow;
+    text-shadow: 1px 1px 5px gray;
+}
+
+button:hover {
+    color: yellow;
+    background-color: black;
+}
+
+h1{
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 30px;
+    background-color: rgba(255, 255, 0, 0.8);
+    border-style: solid;
+    border-radius: 5px;
+    box-sizing: 500px;
+}
+
+h5,h4 {
+    margin: 0px;
+
+}
+
+.Diet{
+    border-top: solid;
+    border-width: 1px;
+}
+.dietlist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    grid-template-columns: repeat(2, 100px);
+    gap: 10px;
+
+    
+}
+.imgdiets {
+    width: 60px;
+    height: 60px;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* position: relative;
+    display: grid;
+    
+    gap: 10px 10px; */
+    /* display: inline-grid;
+    grid-template-columns: repeat(4, 260px);
+    grid-auto-flow: auto;
+    gap: 10px 10px; */
+
+    .card {
+        position: relative;
+        background-color: rgba(255, 255, 0, 0.8);
+        font-size: 15px;
+        color: black;
+        width: 250px;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 2px;
+        min-height: 320px;
+        box-shadow: 2px 2px 5px yellow;
+        text-shadow: 1px 1px 5px gray;
+
+    }
+    .imgRecipe{
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .etiqueta {
+        position: absolute;
+        display: block;
+        height:100px;
+        width: 80px;
+        top: 0px;
+        z-index: 1;
+        align-items: left;
+        opacity: 0.8;
+    }
+    .HSetiqueta {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        z-index: 32;
+        color: white;
+        font-size: 30px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+

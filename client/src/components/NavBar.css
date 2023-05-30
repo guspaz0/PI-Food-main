@@ -1,0 +1,58 @@
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px yellow;
+    text-shadow: 1px 1px 5px gray;
+
+    .navButton {
+        border-radius: 5px;
+        margin: 10px;
+        size: 15px;
+        font-size: 15px;
+        color: black;
+        background-color: yellow;
+        box-shadow: 2px 2px 5px black;
+        text-shadow: 1px 1px 5px gray;
+    };
+    
+    .navButton:hover {
+        color: yellow;
+        background-color: black;
+    };
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.filtros {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    width: 400px;
+}
+
+.toHome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    font-size: 20px;
+    font-style: normal;
+    background-color: rgba(255, 255, 0, 0.8);
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+    text-shadow: 1px 1px 5px gray;
+}

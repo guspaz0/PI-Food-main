@@ -1,0 +1,87 @@
+.FormRecipe {
+    margin-top: 1%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    line-height: 35px;
+    background-color: rgba(255, 255, 0, 0.9);
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px yellow;
+    text-shadow: 1px 1px 5px gray;
+    .submitform {
+        border-radius: 5px;
+        margin: 10px;
+        size: 20px;
+        font-size: 20px;
+        color: black;
+        background-color: yellow;
+    };
+    
+    .submitform:hover {
+        color: yellow;
+        background-color: black;
+    };
+    .createForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        line-height: 35px;
+        #Diets {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .dietlist {
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .addStep {
+        font-size: 15px;
+        background-color: white;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 5px;
+        margin: 5px;
+    }
+    .addStep:hover {
+        color: white;
+        background-color: black;
+        border-style: solid;
+    }
+    .errors {
+        color: red;
+        font-style: oblique;
+    }
+}
+
+
+table, td, tr,th {
+    font-size: 15px;
+    background-color: white;
+    /* margin: auto; */
+    line-height: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+    border-collapse:collapse;
+    vertical-align:middle;
+    table-layout:auto;
+
+}
+

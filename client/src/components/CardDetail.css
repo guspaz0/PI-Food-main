@@ -1,0 +1,98 @@
+.Detail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 0, 0.9);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    gap: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px yellow;
+    text-shadow: 1px 1px 5px gray;
+
+
+    .imgdetail {
+        margin-top: 10px;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 1px;
+        width: 250px;
+        height: 250px;
+    }
+    .StepCards {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+
+        /* grid-template-columns: repeat(4, 260px);
+        grid-auto-flow: auto;*/
+        gap: 10px 10px; 
+    
+        .Step {
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+            border-radius: 5px;
+            min-height: 320px;
+            max-width: 320px;
+
+        }
+    }
+    
+}
+
+.toHome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 20px;
+    font-style: normal;
+    background-color: rgba(255, 255, 0, 0.8);
+    border-style: solid;
+    border-radius: 5px;
+    box-sizing: 500px;
+}
+
+.DietGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    .Dietimg {
+    width: 60px;
+    height: 60px;
+    }
+}
+
+table,td,tr {
+    background-color: white;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+    border-collapse:collapse;
+    vertical-align:middle;
+    table-layout:auto;
+    }
+thead th {
+    background-color: rgb(48, 48, 97);
+    border-bottom: solid 5px rgb(0, 0, 0);
+    color: white;
+}
+tr:nth-child(even){
+    background-color: rgb(150,150,150);
+}
+tr:hover td{
+    background-color: gray;
+    color: white;
+}
