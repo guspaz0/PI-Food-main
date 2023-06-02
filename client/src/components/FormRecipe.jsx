@@ -287,7 +287,7 @@ function handleSubmit(e) {
             {errors.summary? <div className='errors'>{errors.summary}</div> : null}
         </label>
         <label>Nivel de comida saludable (health Score):
-            <input type='number' name='healthScore' placeholder='Ingresar health Score...' onChange={handleInputSteps}></input>
+            <input type='range' name='healthScore' placeholder='Ingresar health Score...' onChange={handleInputSteps}></input>
             {errors.healthScore? <div className='errors'>{errors.healthScore}</div> : null}
         </label>
         <label>imagen:
