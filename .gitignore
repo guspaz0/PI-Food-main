@@ -40,6 +40,10 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.vscode/
+vscode/
+/vscode/
+/.vscode/
 
 # TypeScript v1 declaration files
 typings/
@@ -105,3 +109,5 @@ dist
 
 # package-lock.json
 package-lock.json
+
+

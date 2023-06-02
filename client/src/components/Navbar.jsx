@@ -37,7 +37,7 @@ export default function Navbar(){
     React.useEffect(() => {
         if (Diets.length === 0) {
             dispatch(getAllDiets())
-        }}, [Diets])
+        }}, [])
     
     const handleDispatch = (e) => {
         const { name, value } = e.target;
