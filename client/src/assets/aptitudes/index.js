@@ -7,6 +7,7 @@ const IMAGES = {
     redux: require('./redux_logo.png'),
     node: require('./node_logo.png'),
     python: require('./Python_logo.png'),
+    linkedin: require('./Logo-Linkedin.png')
 }
 
 export default IMAGES;
