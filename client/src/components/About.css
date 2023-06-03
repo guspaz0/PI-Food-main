@@ -1,0 +1,20 @@
+.about {
+    background-color: yellow;
+    width: auto;
+    .aptitudes {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .imgtext {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+img {
+    width: 100px;
+}

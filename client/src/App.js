@@ -7,6 +7,7 @@ import CardDetail from './components/CardDetail';
 import FormRecipe from './components/FormRecipe';
 import Navbar from './components/Navbar.jsx';
 import Error from './components/Error.jsx';
+import About from './components/About.jsx'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path='/home' element={<HomePage/>}/>
       <Route path='/detail/:id' element={<CardDetail/>}/>
       <Route path='/create' element={<FormRecipe/>}/>
+      <Route path='/about' element={<About/>}/>
       <Route path='*' element={<Error/>} />
     </Routes>
   </>

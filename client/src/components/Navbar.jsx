@@ -62,38 +62,49 @@ export default function Navbar(){
 
     return(
     <div className='NavBar'>
-        {location.pathname === '/home'? <>
-        <NavLink to='/create'>
-            <button className='navButton'>Crear Receta</button>
-        </NavLink>
-        <div className='filtros' style={{fontWeight: "bold"}}>Order by:
-            <select name="order" onChange={handleDispatch}>
-                <option value="Default">Default</option>
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-                <option value="Max health score">Max health score </option>
-                <option value="Min health score">Min health score</option>
-            </select>
-            Filter By:
-            <select name="filter" onChange={handleDispatch}>
-                <option value="All diets">All diets</option>
-                <option value="Externas">Externas</option>
-                <option value="Locales">Locales</option>
-                <option value="Created">Created</option>
-                {Diets&&Diets.map(e=>{
-                    return <option value={e.name} key={e.id}>{e.name}</option>
-                })}
-            </select>
-        </div>
-        <form onSubmit={handleSubmit}>
-            <input name={Value} placeholder='Buscar receta' onChange={handleChange}/><button className='navButton'>Enviar</button>
-        </form></> 
-        :<NavLink to='/home'>
-            <button className='toHome'>
-                <img src={Arrow} style={{transform: 'rotate(90deg)', width: '30px'}} alt='Previous'/>
-                Back to Home
-            </button>
-        </NavLink>}
+        {location.pathname === '/home'? 
+        <>
+            <NavLink to='/create'>
+                <button className='navButton'>Crear Receta</button>
+            </NavLink>
+            <NavLink to='/about'>
+                <button className='navButton'>About</button>
+            </NavLink>
+            <div className='filtros' style={{fontWeight: "bold"}}>Order by:
+                <select name="order" onChange={handleDispatch}>
+                    <option value="Default">Default</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                    <option value="Max health score">Max health score </option>
+                    <option value="Min health score">Min health score</option>
+                </select>
+                Filter By:
+                <select name="filter" onChange={handleDispatch}>
+                    <option value="All diets">All diets</option>
+                    <option value="Externas">Externas</option>
+                    <option value="Locales">Locales</option>
+                    <option value="Created">Created</option>
+                    {Diets&&Diets.map(e=>{
+                        return <option value={e.name} key={e.id}>{e.name}</option>
+                    })}
+                </select>
+            </div>
+            <form onSubmit={handleSubmit}>
+                <input name={Value} placeholder='Buscar receta' onChange={handleChange}/><button className='navButton'>Enviar</button>
+            </form>
+        </> 
+        : <>
+            <NavLink to='/home'>
+                <button className='toHome'>
+                    <img src={Arrow} style={{transform: 'rotate(90deg)', width: '30px'}} alt='Previous'/>
+                    Back to Home
+                </button>
+            </NavLink>
+            <NavLink to='/about'>
+                <button className='navButton'>About</button>
+            </NavLink>
+        </>}
+            
     </div>
     )
 }
