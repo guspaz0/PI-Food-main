@@ -16,7 +16,7 @@ export default function About(){
         <h1>About</h1>
         <div className='about'>
             <p> Hola, soy un apasionado de la tecnologia de la informacion, Soy programador Full Stack Developer. Puedo decir que la gran mayoria de mi experiencia laboral fue en el ambito administrativo privado en tareas relacionados a la informacion y toma de deciciones, por lo cual me identifico mas como un desarrollador Backend</p>
-            <a href={linkedinURL}>Estoy en <img src={IMAGES.linkedin} alt='Linkedin'/></a>
+            <a href={linkedinURL}>Estoy en <img src={IMAGES.linkedin} style={{width: '150px'}}alt='Linkedin'/></a>
             {"\n"}
             <a href={githubURL}>Repositorios <img src={IMAGES.github} alt='Linkedin'/></a>
             <h3>Teconologias usadas en esta App:</h3>
