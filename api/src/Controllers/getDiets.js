@@ -31,12 +31,13 @@ const getApiDiets = async () => {
 
 const getDiets = async (req,res) => {
     try { 
-        const importDiet = await getApiDiets()
-        const AllDiets = await Diets.findAll();
+        const AllDiets = await Diets.findAll({raw: true});
         if (AllDiets.length === 0) { 
+            const importDiet = await getApiDiets()
             const createDB = await Diets.bulkCreate(importDiet)
             res.status(200).json(createDB)
         } else {
+            console.log(AllDiets)
             res.status(200).json(AllDiets)
         }
         

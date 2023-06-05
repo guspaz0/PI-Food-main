@@ -19,15 +19,10 @@ export default function HomePage(props){
     const [perPage, setPerPage] = React.useState(9);
     const maxPage = Math.ceil(Allrecipes.length / perPage);
 
-    // useEffect(() => {
-    //     if (Allrecipes.length === 0) {
-    //         dispatch(getAllRecipes())
-    //     }}, [])
-
     const [Loading,setLoading] = React.useState(true)
 
     React.useEffect(()=>{
-        if(Allrecipes.length===0){
+        if(Allrecipes.length === 0){
             setLoading(true)
         }else{
             setLoading(false)
@@ -42,7 +37,7 @@ export default function HomePage(props){
         <div className='cards'>
         {Allrecipes.length === 0 || typeof Allrecipes==='string' || typeof Allrecipes[Allrecipes.length-1] === 'string'
             ? <h1>Not result</h1>
-            : Allrecipes.length>0? 
+            : Allrecipes.length > 0? 
                 Allrecipes.slice((page-1) * perPage,(perPage+(page-1) * perPage)).map((e) => <Card key={e.id} id={e.id} name={e.name} healthScore={e.healthScore} image={e.image} diets={e.diets}/>)
                 : <Error/>}
         </div>

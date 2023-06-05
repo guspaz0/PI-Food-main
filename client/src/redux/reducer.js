@@ -51,19 +51,20 @@ export default function reducer(state = initialState, action) {
             let filter = []
             //let filterNot = []
             //console.log(action.payload)
-            if(state.currentOrigin === 'Locales') {
-                if (action.payload === 'All diets') {
-                    filter = state.recipesDB
-                } else {
-                    filter = [...state.recipesDB].filter((e) => e.diets.includes(action.payload))
-                }
+            // if(state.currentOrigin === 'Locales') {
+            //     if (action.payload === 'All diets') {
+            //         filter = state.recipesDB
+            //     } else {
+            //         filter = [...state.recipesDB].filter((e) => e.diets.includes(action.payload))
+            //     }
+            // } else {
+            
+            if (action.payload === 'All diets') {
+                filter = state.copyRecipes
             } else {
-                if (action.payload === 'All diets') {
-                    filter = state.copyRecipes
-                } else {
-                    filter = [...state.copyRecipes].filter((e) => e.diets.includes(action.payload))
-                }
+                filter = [...state.copyRecipes].filter((e) => e.diets.includes(action.payload))
             }
+            //}
             return {
                 ...state,
                 Allrecipes: filter,
@@ -72,21 +73,15 @@ export default function reducer(state = initialState, action) {
         case ORDER_RECIPES:
             let orderCopy = [...state.Allrecipes];
             let orderNot = [...state.filteredRecipes];
-            //console.log("orderNot", orderNot);
             function order (payload) {
                 if (payload === "Default") return orderNot;
                 return orderCopy.sort((a, b) => {
-                    // if (payload === "Asendente") return a.id - b.id;
-                    // if (payload === "Desendente") return b.id - a.id;
                     if (payload === "A-Z") return a.name.localeCompare(b.name);
                     if (payload === "Z-A") return b.name.localeCompare(a.name);
                     if (payload === "Max health score") return b.healthScore - a.healthScore;
                     if (payload === "Min health score") return a.healthScore - b.healthScore;
                 });
             };
-            // if (action.payload === 'Ascendente') {
-            //     OrderedRecipes = state.copyRecipes.sort();
-            // }
             return {
                 ...state,
                 Allrecipes: order(action.payload)

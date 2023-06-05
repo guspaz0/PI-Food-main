@@ -52,12 +52,12 @@ const AllRecipesEnpoint = async (req, res) => {
         const recipesApi = await getAllRecipes()
         const recipedb = await Recipe.findAll()
         //const recipeApiDb = [...recipesApi, ...recipedb]
-        if (AllrecipesAPI.length===0) {
+        if (AllrecipesAPI.length === 0) {
+            
             res.status(200).json({locales: recipedb, externas: recipesApi})
         } else {
             res.status(200).json({locales: recipedb, externas: AllrecipesAPI})
         }
-        
     }
     catch (error) {
         res.status(400).json({error: error.message})

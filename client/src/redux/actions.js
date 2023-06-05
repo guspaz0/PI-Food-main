@@ -12,7 +12,7 @@ export const ALL_RECIPES_DB = "ALL_RECIPES_DB";
 export const ALL_RECIPES_CREATED = "ALL_RECIPES_CREATED";
 
 
-export const getAllRecipes = (prop) => {
+export const getAllRecipes = () => {
     return async function (dispatch) {
         try{
             const Allrecipes = await axios.get('http://localhost:3001/allrecipes');

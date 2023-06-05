@@ -1,11 +1,9 @@
 import './About.css'
 import IMAGES from '../assets/aptitudes';
-import {useRef} from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 export default function About(){
 
-    const navigate = useNavigate()
     const linkedinURL = 'https://www.linkedin.com/in/gustavo-rodolfo-paz-767951118/'
     const githubURL = 'https://github.com/guspaz0'
 
