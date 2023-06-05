@@ -26,7 +26,7 @@ export default function FormRecipe(){
         name: '',
         image: '',
         summary: '',
-        healthScore: '',
+        healthScore: 50,
         steps: [{
             number: 1,
             step: '',
@@ -37,8 +37,10 @@ export default function FormRecipe(){
         diets: []
         })
 
-React.useEffect(()=> { 
-}, [errors])
+React.useEffect(()=> {
+    setErrors(validation(Form))
+
+}, [Form])
 
 function handleStepsBtn (e) {
     e.preventDefault(e);
@@ -143,10 +145,10 @@ function handleButtons (e) {
 function handleInputSteps(e) {
     e.preventDefault(e);
     const parameters = e.target.name.split(",")
-    const validate = validation(Form);
-    if (validate) {
-        setErrors(validate)
-    }
+    // const validate = validation(Form);
+    // if (validate) {
+    //     setErrors(validate)
+    // }
     
     if (parameters[0] === 'step')  {
         //console.log(e.target.name)
@@ -250,25 +252,41 @@ function handleInputSteps(e) {
         })
     }
 }
+function isEmpty(obj) {
+    for (const prop in obj) {
+        if (Object.hasOwn(obj, prop)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 
 function handleSubmit(e) {
     e.preventDefault();
-
-    function isEmpty(obj) {
-        for (const prop in obj) {
-            if (Object.hasOwn(obj, prop)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    setErrors(validation(Form))
-
     if (isEmpty(errors)) {
         dispatch(createRecipe(Form))
         .then((data) => {
-            if (data === 200) {alert('La Receta ha sido creada exitosamente en la base de datos!')}
+            if (data === 200) {
+                alert('La Receta ha sido creada exitosamente en la base de datos!');
+                setForm({
+                    name: '',
+                    image: '',
+                    summary: '',
+                    healthScore: 50,
+                    steps: [{
+                        number: 1,
+                        step: '',
+                        ingredients: [{id: 1, name: ''}],
+                        equipment: [{id: 1, name: ''}],
+                        length: {number: null, unit: null}
+                        }],
+                    diets: []
+                    })
+                const inputs = document.querySelectorAll(['input', 'textarea', 'select']);
+                inputs.forEach(input => input.value = '');
+            }
             else {alert('Hubo un error al intentar crear la receta')}
         })
     } else {alert ('corregir errores del formulario')}
@@ -278,23 +296,22 @@ function handleSubmit(e) {
     return(
     <form className='FormRecipe' onSubmit={handleSubmit}>
         <h2>Formulario de Recetas</h2>
-        <label>Nombre:
-            <input type='text' name='name' placeholder='Ingresar Nombre...' onChange={handleInputSteps}></input> 
+        <label>Nombre:</label>
+            <input type='text' name='name' style={{width: '300px'}} placeholder='Ingresar Nombre...' onChange={handleInputSteps}></input> 
             {errors.name? <div className='errors'>{errors.name}</div> : null}
-        </label>
-        <label>Resumen del plato:
-            <textarea type='text' name='summary' placeholder='Ingresar Resumen del plato...' onChange={handleInputSteps}></textarea> 
+        <label>Resumen del plato:</label>
+            <textarea type='text' style={{width: '400px', height: '50px'}} name='summary' placeholder='Ingresar Resumen del plato...' onChange={handleInputSteps}></textarea> 
             {errors.summary? <div className='errors'>{errors.summary}</div> : null}
-        </label>
+        
         <label>Nivel de comida saludable (health Score):
             <input type='range' min="1" max="100" name='healthScore' placeholder='Ingresar health Score...' onChange={handleInputSteps}></input>
             {errors.healthScore? <div className='errors'>{errors.healthScore}</div> : null}
         </label>
-        <label>imagen:
+        <label>imagen:</label>
             <input name='image' placeholder='Ingresar URL de imagen...' onChange={handleInputSteps}></input>
             {errors.image? <div className='errors'>{errors.image}</div> : null}
             {Form.image? <img style={{width: '150px', borderRadius: '5px', borderStyle:'solid'}} src={Form.image} alt='img'/> : <></>}
-        </label>
+        
         <label>Paso a paso:
             <table className='formSteps'>
                 <caption>Steps</caption>
