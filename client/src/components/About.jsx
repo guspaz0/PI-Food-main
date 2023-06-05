@@ -15,7 +15,9 @@ export default function About(){
     <div>
         <h1>About</h1>
         <div className='about'>
-            <p> Hola, soy un apasionado de la tecnologia de la informacion, Soy programador Full Stack Developer. Puedo decir que la gran mayoria de mi experiencia laboral fue en el ambito administrativo privado en tareas relacionados a la informacion y toma de deciciones, por lo cual me identifico mas como un desarrollador Backend</p>
+            <h4 lang='es'> Hola, soy un apasionado de la tecnologia de la informacion, Soy programador Full Stack Developer. Puedo decir que la gran mayoria de mi experiencia laboral fue en el ambito administrativo privado en tareas relacionados a la informacion y toma de deciciones, por lo cual me identifico mas como un desarrollador orientado al Backend, aunque estoy siempre predispuesto a aprender algo nuevo</h4>
+            
+            <p lang='en'> Hi, i am a passionate of information tecnology, i am q full stack web developer. i can say than a lot of my labor experience belongs to private administrative enviroments in tasks relationed with information and decisions choice, after then i am more oriented to backend developer, but always im open to learn new habilities</p>
             <a href={linkedinURL}>Estoy en <img src={IMAGES.linkedin} style={{width: '150px'}}alt='Linkedin'/></a>
             {"\n"}
             <a href={githubURL}>Repositorios <img src={IMAGES.github} alt='Linkedin'/></a>
