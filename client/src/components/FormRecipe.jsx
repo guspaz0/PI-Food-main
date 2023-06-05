@@ -145,13 +145,8 @@ function handleButtons (e) {
 function handleInputSteps(e) {
     e.preventDefault(e);
     const parameters = e.target.name.split(",")
-    // const validate = validation(Form);
-    // if (validate) {
-    //     setErrors(validate)
-    // }
     
     if (parameters[0] === 'step')  {
-        //console.log(e.target.name)
         const filterStep = Form.steps.filter((x) => x.number !== Number(parameters[1]));
         const updateStep = Form.steps.filter((x) => x.number === Number(parameters[1]))[0];
         return setForm(
