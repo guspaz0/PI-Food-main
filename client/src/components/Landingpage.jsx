@@ -28,7 +28,7 @@ export default function LandingPage(){
 
     return(<>
         <h1 className='Landing'>Henry Foods PI</h1>
-        <button className='landingbutton' onClick={handleClick}>Ingresar al Home</button>
+        <button className='landingbutton' onClick={handleClick}>Redirect to Home</button>
         {Loading? <img src={Loader} alt='Loading'/>: <></>}
         <div id="loading">
             <video id="bgvideo" autoPlay loop muted>

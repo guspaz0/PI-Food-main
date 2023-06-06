@@ -65,7 +65,7 @@ export default function Navbar(){
         {location.pathname === '/home'? 
         <>
             <NavLink to='/create'>
-                <button className='navButton'>Crear Receta</button>
+                <button className='navButton'>Create Recipe</button>
             </NavLink>
             <NavLink to='/about'>
                 <button className='navButton'>About</button>
@@ -81,16 +81,16 @@ export default function Navbar(){
                 Filter By:
                 <select name="filter" onChange={handleDispatch}>
                     <option value="All diets">All diets</option>
-                    <option value="Externas">Externas</option>
-                    <option value="Locales">Locales</option>
-                    <option value="Created">Created</option>
+                    <option value="Externas">External Recipes</option>
+                    <option value="Locales">Local DB Recipes</option>
+                    <option value="Created">Created in current session</option>
                     {Diets&&Diets.map(e=>{
                         return <option value={e.name} key={e.id}>{e.name}</option>
                     })}
                 </select>
             </div>
             <form onSubmit={handleSubmit}>
-                <input name={Value} placeholder='Buscar receta' onChange={handleChange}/><button className='navButton'>Enviar</button>
+                <input name={Value} placeholder='Search recipe' onChange={handleChange}/><button className='navButton'>Search</button>
             </form>
         </> 
         : <>

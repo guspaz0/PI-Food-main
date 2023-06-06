@@ -290,24 +290,24 @@ function handleSubmit(e) {
 
     return(
     <form className='FormRecipe' onSubmit={handleSubmit}>
-        <h2>Formulario de Recetas</h2>
-        <label>Nombre:</label>
+        <h2>Create Recipes Formulary</h2>
+        <label>Name:</label>
             <input type='text' name='name' style={{width: '300px'}} placeholder='Ingresar Nombre...' onChange={handleInputSteps}></input> 
             {errors.name? <div className='errors'>{errors.name}</div> : null}
-        <label>Resumen del plato:</label>
+        <label>Summary:</label>
             <textarea type='text' style={{width: '400px', height: '50px'}} name='summary' placeholder='Ingresar Resumen del plato...' onChange={handleInputSteps}></textarea> 
             {errors.summary? <div className='errors'>{errors.summary}</div> : null}
         
-        <label>Nivel de comida saludable (health Score):
+        <label>Health Score:
             <input type='range' min="1" max="100" name='healthScore' placeholder='Ingresar health Score...' onChange={handleInputSteps}></input>
             {errors.healthScore? <div className='errors'>{errors.healthScore}</div> : null}
         </label>
-        <label>imagen:</label>
+        <label>Image:</label>
             <input name='image' placeholder='Ingresar URL de imagen...' onChange={handleInputSteps}></input>
             {errors.image? <div className='errors'>{errors.image}</div> : null}
             {Form.image? <img style={{width: '150px', borderRadius: '5px', borderStyle:'solid'}} src={Form.image} alt='img'/> : <></>}
         
-        <label>Paso a paso:
+        <label>Step to step:
             <table className='formSteps'>
                 <caption>Steps</caption>
                 <thead></thead>
@@ -324,16 +324,16 @@ function handleSubmit(e) {
                             <input type='text' style={{width: 25}} name={x} value={x.id} readOnly onChange={handleInputSteps}/>
                             <input type='text' name={`ingredients,${e.number},${x.id}`} placeholder='ingresar ingrediente...' onChange={handleInputSteps}/>
                             </span>})}
-                            <button className='addStep' name='addIng' value={`${e.number}`} onClick={handleButtons}>Agregar</button>
-                            <button className='addStep' name='delIng' value={`${e.number}`} onClick={handleButtons}>Quitar</button>
+                            <button className='addStep' name='addIng' value={`${e.number}`} onClick={handleButtons}>Add</button>
+                            <button className='addStep' name='delIng' value={`${e.number}`} onClick={handleButtons}>Delete</button>
                         </td>
                         <td>
                             {e.equipment?.map((x) => { return <span>
                                 <input type='text' style={{width: '25px'}} value={x.id} readOnly/>
                                 <input type='text' name={`equipment,${e.number},${x.id}`} placeholder='ingresar equipamiento...' onChange={handleInputSteps}/>
                             </span>})}
-                            <button className='addStep' name='addequip' value={`${e.number}`} onClick={handleButtons}>Agregar</button>
-                            <button className='addStep' name='delequip' value={`${e.number}`} onClick={handleButtons}>Quitar</button>
+                            <button className='addStep' name='addequip' value={`${e.number}`} onClick={handleButtons}>Add</button>
+                            <button className='addStep' name='delequip' value={`${e.number}`} onClick={handleButtons}>Delete</button>
                         </td>
                         <td>
                             <input type='number' style={{width: 60}} name={`length,${e.number},number`} placeholder='tiempo' onChange={handleInputSteps}/>
@@ -348,11 +348,11 @@ function handleSubmit(e) {
                 </tbody>
                 <tfoot></tfoot>
             </table>
-            <button className='addStep' name='add' onClick={handleStepsBtn}>Agregar paso</button>
-            <button className='addStep' name='del' onClick={handleStepsBtn}>Quitar ultimo</button>
+            <button className='addStep' name='add' onClick={handleStepsBtn}>Add Step</button>
+            <button className='addStep' name='del' onClick={handleStepsBtn}>Delete last</button>
         </label>
 
-        <label>Tipo de dieta:</label>
+        <label>Select Diet type:</label>
             <span className='dietlist'>
                 <select name='diets' style={{height: '150px'}} multiple onChange={handleInputSteps}>
                     <option value='vegan'>vegan</option>
@@ -371,7 +371,7 @@ function handleSubmit(e) {
                 </select>
             </span>
             {errors.diets? <div className='errors'>{errors.diets}</div> : null}
-        <button className='submitform' type='submit'>Enviar</button>
+        <button className='submitform' type='submit'>Submit</button>
     </form>
     )
 }

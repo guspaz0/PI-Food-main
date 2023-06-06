@@ -18,7 +18,7 @@ export default function About(){
                 <p>Este es un proyecto individual destinado a aplicar todos los conocimientos adquiridos durante el curso de Desarrollador web Full Stack de Henry.
                 al ingresar al 'Home', Muestra las primeras 100 recetas consultadas a la API de 'Spoonacular', mostrando de a 9 cards por pagina, y al hacer click en una de ellas, muestra el detalle de la card. en el 'Navbar' se incluyen filtros de ordenamiento y filtros de cards. Tambien hay un boton para crear recetas que te redirige a un formulario que el usuarios debera completar y al enviar, si todo ocurrio como se esperaba, se guardara en una api o 'backend' que contiene una base de datos SQL (postgres) localmente, diferente al de Spoonacular
                 </p>
-                <h3>Teconologias usadas en esta App:</h3>
+                <h3>Tecnologias usadas en esta App:</h3>
             <span className='aptitudes'>
                 {aptitudes.map((e,index) => {return <h5 key={index} className='imgtext'>{e}{"\n"}<img src={IMAGES[e]} alt={e}/></h5>})}
             </span>

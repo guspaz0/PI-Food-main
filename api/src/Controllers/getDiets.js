@@ -37,7 +37,6 @@ const getDiets = async (req,res) => {
             const createDB = await Diets.bulkCreate(importDiet)
             res.status(200).json(createDB)
         } else {
-            console.log(AllDiets)
             res.status(200).json(AllDiets)
         }
         
