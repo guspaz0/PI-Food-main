@@ -313,14 +313,14 @@ function handleSubmit(e) {
                 <thead></thead>
                 <tbody>
                     <tr><th scope='col'>nro</th><th scope='col'>step</th><th style={{width: 150}}scope='col'>ingredients</th><th style={{width: 150}}scope='col'>equipment</th><th style={{width: 50}}scope='col'>length</th></tr>
-                    {Form.steps.map((e) => {return <tr key={e.number}>
+                    {Form.steps?.map((e) => {return <tr key={e.number}>
                         <th><input type='text' style={{width: 25}} name={`${e.number}`} value={e.number} readOnly onChange={handleInputSteps}/></th>
                         <td>
                             <textarea type='text' style={{height: '100px'}} name={`step,${e.number}`} placeholder='ingresar paso...' onChange={handleInputSteps}/>
                             {errors.steps? <p className='errors'>{errors.steps}</p> : null}
                         </td>
                         <td>
-                        {e.ingredients.map((x) => {return <span key={x.id}>
+                        {e.ingredients?.map((x) => {return <span key={x.id}>
                             <input type='text' style={{width: 25}} name={x} value={x.id} readOnly onChange={handleInputSteps}/>
                             <input type='text' name={`ingredients,${e.number},${x.id}`} placeholder='ingresar ingrediente...' onChange={handleInputSteps}/>
                             </span>})}
@@ -349,7 +349,7 @@ function handleSubmit(e) {
                 <tfoot></tfoot>
             </table>
             <button className='addStep' name='add' onClick={handleStepsBtn}>Add Step</button>
-            <button className='addStep' name='del' onClick={handleStepsBtn}>Delete last</button>
+            {Form.steps.length !== 1? <button className='addStep' name='del' onClick={handleStepsBtn}>Delete last</button> : null}
         </label>
 
         <label>Select Diet type:</label>

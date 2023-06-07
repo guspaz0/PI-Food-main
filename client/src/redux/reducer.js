@@ -3,7 +3,8 @@ import {GET_ALL_RECIPES,
     FILTER_RECIPE_NAME,
     CREATE_RECIPE,
     GET_ALL_DIETS,
-    FILTER_RECIPE_DIET,
+    FILTER_FIRST,
+    FILTER_SECOND,
     ORDER_RECIPES,
     ALL_RECIPES_API,
     ALL_RECIPES_DB,
@@ -47,32 +48,34 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 Allrecipes: action.payload,
             }
-        case FILTER_RECIPE_DIET:
+        case FILTER_FIRST:
             let filter = []
-            //let filterNot = []
-            //console.log(action.payload)
-            // if(state.currentOrigin === 'Locales') {
-            //     if (action.payload === 'All diets') {
-            //         filter = state.recipesDB
-            //     } else {
-            //         filter = [...state.recipesDB].filter((e) => e.diets.includes(action.payload))
-            //     }
-            // } else {
-            
-            if (action.payload === 'All diets') {
+            if (action.payload === 'default') {
                 filter = state.copyRecipes
-            } else {
+            }
+            if (state.Diets.map((e) => e.name.includes(action.payload))) {
                 filter = [...state.copyRecipes].filter((e) => e.diets.includes(action.payload))
             }
-            //}
             return {
                 ...state,
                 Allrecipes: filter,
                 filteredRecipes: filter,
             }
+        case FILTER_SECOND:
+            let filter2 = []
+            if (action.payload === 'default') {
+                filter2 = state.filteredRecipes
+            }
+            if (state.Diets.map((e) => e.name.includes(action.payload))) {
+                filter2 = [...state.filteredRecipes].filter((e) => e.diets.includes(action.payload))
+            }
+            return {
+                ...state,
+                Allrecipes: filter2,
+            }
         case ORDER_RECIPES:
             let orderCopy = [...state.Allrecipes];
-            let orderNot = [...state.filteredRecipes];
+            let orderNot = [...state.Allrecipes];
             function order (payload) {
                 if (payload === "Default") return orderNot;
                 return orderCopy.sort((a, b) => {
@@ -93,19 +96,22 @@ export default function reducer(state = initialState, action) {
                 recipesDB: [...state.recipesDB, action.payload]
             }
         case ALL_RECIPES_API:
+            const filterApiDb = [...state.Allrecipes].filter((e) => [...state.recipesApi].includes(e))
             return {
                 ...state,
-                Allrecipes: [...state.recipesApi],
+                Allrecipes: [...filterApiDb],
             }
         case ALL_RECIPES_DB:
+            const filterDB = [...state.Allrecipes].filter((e) => [...state.recipesDB].includes(e))
             return {
                 ...state,
-                Allrecipes: [...state.recipesDB],
+                Allrecipes: [...filterDB],
             }
         case ALL_RECIPES_CREATED:
+            const filterByCreated = [...state.Allrecipes].filter((e) => [...state.createdrecipes].includes(e))
             return {
                 ...state,
-                Allrecipes: [...state.createdrecipes]
+                Allrecipes: [...filterByCreated]
             }
     default:
         return state;

@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
     diets: {
       type: DataTypes.ARRAY(DataTypes.STRING(30)),
       allowNull: true,
-    }
+    },
   },
     {
       timestamps: false

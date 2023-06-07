@@ -1,6 +1,8 @@
 .NavBar {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
     justify-content: space-between;
     align-items: center;
     border-style: solid;
@@ -8,6 +10,7 @@
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 5px yellow;
     text-shadow: 1px 1px 5px gray;
+    margin: 5px;
 
     .navButton {
         border-radius: 5px;
@@ -39,7 +42,8 @@ form {
     align-items: center;
     justify-content: space-between;
     height: fit-content;
-    width: 400px;
+    width: fit-content;
+    padding: 5px;
 }
 
 .toHome {

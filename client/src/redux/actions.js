@@ -6,7 +6,8 @@ export const FILTER_RECIPE_ID = "FILTER_RECIPE_ID";
 export const FILTER_RECIPE_NAME = "FILTER RECIPE NAME";
 export const CREATE_RECIPE = "CREATE_RECIPE";
 export const ORDER_RECIPES = "RODER_RECIPE";
-export const FILTER_RECIPE_DIET = "FILTER_RECIPE_DIET";
+export const FILTER_FIRST = "FILTER_FIRST";
+export const FILTER_SECOND = "FILTER_SECOND";
 export const ALL_RECIPES_API = "ALL_RECIPES_API";
 export const ALL_RECIPES_DB = "ALL_RECIPES_DB";
 export const ALL_RECIPES_CREATED = "ALL_RECIPES_CREATED";
@@ -68,10 +69,18 @@ export function filterRecipeName(string) {
     }
 }
 
-export function filterRecipeDiet(atribute) {
+export function firstFilter(atribute) {
     return function (dispatch) {
         dispatch({
-            type: FILTER_RECIPE_DIET,
+            type: FILTER_FIRST,
+            payload: atribute,
+        });
+    }
+}
+export function secondFilter(atribute) {
+    return function (dispatch) {
+        dispatch({
+            type: FILTER_SECOND,
             payload: atribute,
         });
     }
