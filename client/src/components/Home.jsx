@@ -21,13 +21,15 @@ export default function HomePage(props){
 
     const [Loading,setLoading] = React.useState(true)
 
+
+
     React.useEffect(()=>{
         if(Allrecipes.length === 0){
             setLoading(true)
         }else{
             setLoading(false)
         }
-    }, [Allrecipes]);
+    }, []);
 
     return(
     <div>

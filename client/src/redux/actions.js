@@ -100,7 +100,7 @@ export function createRecipe(form) {
         try {
             const postrecipe = await axios.post(`http://localhost:3001/recipes`, form)
             if (postrecipe.status === 200) {
-                //console.log({message: postrecipe.status})
+                console.log({message: postrecipe.status})
                 dispatch({
                     type: CREATE_RECIPE,
                     payload: postrecipe.data

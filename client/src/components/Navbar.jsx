@@ -29,6 +29,8 @@ export default function Navbar(){
         search: '',
     });
 
+    React.useEffect(() =>{}, [Allrecipes])
+
     const handleChange=(e)=>{
         setValue(e.target.value)
     };
@@ -68,7 +70,7 @@ export default function Navbar(){
             }
             else {
                 if (name === 'filter') return dispatch(firstFilter(value));
-                if (name === 'filter2') return dispatch(secondFilter(value))
+                if (name === 'filter2') return dispatch(secondFilter(value));
             }
         }
     };
@@ -95,7 +97,7 @@ export default function Navbar(){
             <div className='filtros' style={{fontWeight: "bold"}}>
                 First filter:
                 <select name="filter" onChange={handleDispatch}>
-                    <option value="default">Default</option>
+                    <option value="reset">Reset</option>
                     <option value="Externas">External Recipes</option>
                     <option value="Locales">Local DB Recipes</option>
                     <option value="Created">Created in current session</option>
@@ -106,8 +108,8 @@ export default function Navbar(){
             </div>
             <div className='filtros' style={{fontWeight: "bold"}}>
                 Second filter:
-                <select name="filter2" defaultValue='default' onChange={handleDispatch}>
-                    <option value='default'>Default</option>
+                <select name="filter2" onChange={handleDispatch}>
+                    <option value='reset'>Reset</option>
                     <option value="Externas">External Recipes</option>
                     <option value="Locales">Local DB Recipes</option>
                     <option value="Created">Created in current session</option>
